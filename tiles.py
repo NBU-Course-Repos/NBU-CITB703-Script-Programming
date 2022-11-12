@@ -16,8 +16,8 @@ data = [ [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
 
 pygame.init()
 FPS = 60
-SCREEN_WIDTH = 1020
-SCREEN_HEIGHT= 800
+SCREEN_WIDTH = 800
+SCREEN_HEIGHT= 600
 WHITE = (255,255,255)
 TileWidth = 64
 TileHeight = 64
@@ -56,7 +56,6 @@ while True:
     for i in range(0,MapHeight-1):
         for j in range(0,MapWidth-1):
             if data[i][j]>0:
-                
                 DISPLAYSURF.blit(tile[data[i][j]],
                                  ((j)*TileHeight,(i)*TileWidth))
     DISPLAYSURF.blit(marioImg, (marioX, marioY))
