@@ -1,7 +1,7 @@
 import pygame, sys
 from pygame.locals import *
 from enum import Enum
-import Player
+import Player, Enemies
 
 WHITE:tuple = (255,255,255)
 
@@ -18,6 +18,7 @@ DISPLAYSURF.fill((255,255,255))
 pygame.display.set_caption("Aliexpress Mario")
 
 P1 = Player.Player()
+GOOMBA1 = Enemies.Enemies()
 
 while(True):
     DISPLAYSURF.fill(WHITE)
@@ -26,7 +27,11 @@ while(True):
             pygame.quit()
             sys.exit()
     P1.update()
+    GOOMBA1.move()
+    
     P1.draw(DISPLAYSURF)
+    GOOMBA1.draw(DISPLAYSURF)
+    
         
     pygame.display.update()
-    FPS.tick(60)  
+    FPS.tick(30)  

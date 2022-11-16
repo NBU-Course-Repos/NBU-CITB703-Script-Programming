@@ -4,7 +4,6 @@ BASE_PLAYER_IMAGE = "game\Assets\Playable_character\mario.png"
 
 
 class Player(pygame.sprite.Sprite):
-    
     FacingRight = True
     def __init__(self):
         super().__init__
