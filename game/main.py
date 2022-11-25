@@ -1,37 +1,32 @@
 import pygame, sys
 from pygame.locals import *
-from enum import Enum
-import Player, Enemies
+from player import Player
+from enemies import Enemies
+from level import Level
+from settings import *
 
 WHITE:tuple = (255,255,255)
-
 pygame.init()
-#Set FPS limit to 60, otherwise
-#the the main loop will execute as fast as it can
 FPS = pygame.time.Clock() 
-#Display Const properties
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
-DISPLAYSURF = pygame.display.set_mode\
-                ((SCREEN_WIDTH,SCREEN_HEIGHT))
+DISPLAYSURF = pygame.display.set_mode((SCREEN_WIDTH,SCREEN_HEIGHT))
 DISPLAYSURF.fill((255,255,255))
 pygame.display.set_caption("Aliexpress Mario")
 
-P1 = Player.Player()
-GOOMBA1 = Enemies.Enemies()
+level = Level(level_data, DISPLAYSURF)
+
 
 while(True):
+    
     DISPLAYSURF.fill(WHITE)
     for event in pygame.event.get():              
         if event.type == QUIT:
             pygame.quit()
             sys.exit()
-    P1.update()
-    GOOMBA1.move()
+    level.run()
+    # P1.update()
+    # GOOMBA1.move()  
     
-    P1.draw(DISPLAYSURF)
-    GOOMBA1.draw(DISPLAYSURF)
-    
-        
+    # P1.draw(DISPLAYSURF)
+    # GOOMBA1.draw(DISPLAYSURF)
     pygame.display.update()
     FPS.tick(30)  
